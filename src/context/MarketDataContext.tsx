@@ -1,11 +1,14 @@
 import React, { createContext, useContext } from 'react';
 import { MarketDataProvider } from '@/types';
-import { marketDataProvider } from '@/data/MockMarketDataProvider';
+import { marketDataProvider as mockProvider } from '@/data/MockMarketDataProvider';
+import { createTwelveDataProvider } from '@/data/TwelveDataProvider';
 
-// ── To go live with real data ──
-// 1. Create src/data/LiveMarketDataProvider.ts implementing MarketDataProvider
-// 2. Import it here instead of marketDataProvider
-// 3. Done — no component code changes needed anywhere else in the app.
+const TWELVE_DATA_API_KEY = '';
+
+const marketDataProvider: MarketDataProvider =
+  TWELVE_DATA_API_KEY.trim().length > 0
+    ? createTwelveDataProvider(TWELVE_DATA_API_KEY)
+    : mockProvider;
 
 const MarketDataContext = createContext<MarketDataProvider>(marketDataProvider);
 
