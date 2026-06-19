@@ -3,7 +3,7 @@ import { MarketDataProvider } from '@/types';
 import { marketDataProvider as mockProvider } from '@/data/MockMarketDataProvider';
 import { createTwelveDataProvider } from '@/data/TwelveDataProvider';
 
-const TWELVE_DATA_API_KEY = '';
+const TWELVE_DATA_API_KEY = 'dffbc9dbfe0a4548b8fb80fdcfb76c0b';
 
 const marketDataProvider: MarketDataProvider =
   TWELVE_DATA_API_KEY.trim().length > 0
